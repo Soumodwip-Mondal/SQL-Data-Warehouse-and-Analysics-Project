@@ -4,7 +4,7 @@ In our data source there are two source src_crm and src_erp. The tables in src_c
 and in src_erp are  CUST_AZ12, LOC_A101, PX_CAT_G1V2. 
 This script will create all tables inside the bronze_layer schema
 */
-
+DROP TABLE IF EXISTS bronze_layer.crm_cust_info;
 CREATE TABLE bronze_layer.crm_cust_info
 (
 	cst_id INT,
@@ -15,6 +15,7 @@ CREATE TABLE bronze_layer.crm_cust_info
 	cst_gndr VARCHAR(50),
 	cst_create_date DATE
 );
+DROP TABLE IF EXISTS bronze_layer.crm_prd_info;
 CREATE TABLE bronze_layer.crm_prd_info(
 	prd_key INT,
 	prd_nm VARCHAR(50),
@@ -23,6 +24,7 @@ CREATE TABLE bronze_layer.crm_prd_info(
 	prd_start_dt DATE,
 	prd_end_dt DATE
 );
+DROP TABLE IF EXISTS bronze_layer.crm_sales_details;
 CREATE TABLE bronze_layer.crm_sales_details(
 	sls_ord_num VARCHAR(50),
 	sls_prd_key VARCHAR(50),
@@ -34,19 +36,20 @@ CREATE TABLE bronze_layer.crm_sales_details(
 	sls_quantity INT,
 	sls_price INT
 );
+DROP TABLE IF EXISTS bronze_layer.erp_CUST_AZ12;
 CREATE TABLE bronze_layer.erp_CUST_AZ12
 (
 	CID VARCHAR(50),
 	BDATE DATE,
 	GEN VARCHAR(50)
 );
-
+DROP TABLE IF EXISTS bronze_layer.erp_LOC_A101;
 CREATE TABLE bronze_layer.erp_LOC_A101
 (
 	CID	VARCHAR(50),
 	CNTRY VARCHAR(50)
 );
-							
+DROP TABLE IF EXISTS bronze_layer.erp_PX_CAT_G1V2;	  			
 CREATE TABLE bronze_layer.erp_PX_CAT_G1V2
 (
 	ID INT,
@@ -55,5 +58,4 @@ CREATE TABLE bronze_layer.erp_PX_CAT_G1V2
 	MAINTENANCE VARCHAR(50)
 );
 			
-						
-						
+				
